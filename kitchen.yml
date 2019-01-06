@@ -26,7 +26,6 @@ suites:
   - name: default
     run_list:
       - recipe[apache::default]
-      - recipe[apache::motd]
     verifier:
       inspec_tests:
         - test/integration/default

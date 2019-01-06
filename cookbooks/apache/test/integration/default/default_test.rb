@@ -14,5 +14,17 @@ end
 
 # This is an example test, replace it with your own test.
 describe port(80), :skip do
-  it { should_not be_listening }
+  it { should be_listening }
+end
+
+describe package('httpd') do
+  it { should be_installed }
+end
+
+describe service('httpd') do
+  it { should be_running }
+end
+
+describe file('/etc/motd') do
+  its('content') { should match(%r{Hostname\s.*?}) }
 end
